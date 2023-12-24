@@ -10,7 +10,8 @@
 <body>
     <h1>
         <?php
-        echo "Hello World PHP 2!"
+        $greeting = "Hello";
+        echo "$greeting World PHP 2!";
       ?>
     </h1>
 </body>
