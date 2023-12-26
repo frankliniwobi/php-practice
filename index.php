@@ -14,6 +14,23 @@
         echo "$greeting World PHP 2!";
       ?>
     </h1>
+
+    <?php
+        $names = [
+            "John",
+            "Doe",
+            "Jane",
+        ];
+    ?>
+
+    <ul>
+        <?php
+            foreach ($names as $name) {
+                echo "<li>$name</li>";
+            }
+        ?>
+    </ul>
+
 </body>
 
 </html>
