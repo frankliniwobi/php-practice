@@ -57,19 +57,7 @@
                 ],
             ];
 
-            $filter = function (array $array, $fn) {
-                $filteredData = [];
-
-                foreach ($array as $data) {
-                    if ($fn($data)) {
-                        $filteredData[] = $data;
-                    }
-                }
-
-                return $filteredData;
-            };
-
-            $filtered = $filter($people, function($data) {
+            $filtered = array_filter($people, function($data) {
                 return $data['age'] >= 20;
             });
 
