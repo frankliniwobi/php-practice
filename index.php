@@ -56,12 +56,34 @@
                     "age" => 15,
                 ],
             ];
+
+            function filterByAge(array $array, int $age = 20) {
+                $filteredData = [];
+
+                foreach ($array as $data) {
+                    if ($data["age"] >= $age) {
+                        $filteredData[] = $data;
+                    }
+                }
+
+                return $filteredData;
+            }
+
+
         ?>
 
         <?php foreach ($people as $person) : ?>
         <span>Name : <?php echo  $person["name"] ?></span> <br>
         <span>Age : <?php echo  $person["age"] ?></span> <br>
         <span>Age : <?php echo  $person["gender"] ?></span> <br> <br>
+        <?php endforeach; ?>
+
+        <!--- Filter persons with age greater than 20 -->
+        <p>Filter by Age</p>
+        <?php foreach (filterByAge($people, 20) as $data) : ?>
+        <span>Name : <?php echo  $data["name"] ?></span> <br>
+        <span>Age : <?php echo  $data["age"] ?></span> <br>
+        <span>Age : <?php echo  $data["gender"] ?></span> <br> <br>
         <?php endforeach; ?>
     </ul>
 
