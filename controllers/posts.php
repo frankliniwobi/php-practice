@@ -10,7 +10,7 @@ $id = 1;
 
 $query = "select * from posts where user_id = :id";
 
-$posts = $db->query($query, [':id' => $id])->fetchAll();
+$posts = $db->query($query, [':id' => $id])->get();
 
 $count = count($posts);
 

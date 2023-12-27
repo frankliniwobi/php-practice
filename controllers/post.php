@@ -12,11 +12,11 @@ $db = new Database($config['database']);
 
 $query = "select * from posts where id = :id";
 
-$post = $db->query($query, [':id' => $id])->fetch();
+$post = $db->query($query, [':id' => $id])->findorFail();
 
-if (! $post) {
-    abort();
-}
+// if (! $post) {
+//     abort();
+// }
 
 if ($post["user_id"] !== $currenUserId) {
     abort(Response::FORBIDDEN);
