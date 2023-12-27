@@ -6,7 +6,7 @@ $config = require('config.php');
 
 $id = $_GET["id"];
 
-$currenUserId = 1;
+$currentUserId = 1;
 
 $db = new Database($config['database']);
 
@@ -14,13 +14,7 @@ $query = "select * from posts where id = :id";
 
 $post = $db->query($query, [':id' => $id])->findorFail();
 
-// if (! $post) {
-//     abort();
-// }
-
-if ($post["user_id"] !== $currenUserId) {
-    abort(Response::FORBIDDEN);
-}
+authorize($post["user_id"] === $currentUserId);
 
 
 require "views/post.view.php";
