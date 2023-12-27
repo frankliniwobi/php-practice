@@ -1,6 +1,6 @@
 <?php
 
-$heading = "My Posts";
+
 
 $config = require('config.php');
 
@@ -12,6 +12,8 @@ $query = "select * from posts where user_id = :id";
 
 $posts = $db->query($query, [':id' => $id])->fetchAll();
 
-// dd($post);
+$count = count($posts);
+
+$heading = "My Posts ($count)";
 
 require "views/posts.view.php";
