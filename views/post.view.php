@@ -9,7 +9,7 @@
 
         <a href="/posts" class="mb-5 text-blue-500 hover:underline active:underline block">See all my posts</a>
 
-        <?= $post['title'] ?>
+        <?= htmlspecialchars($post['title']) ?>
 
     </div>
 </main>

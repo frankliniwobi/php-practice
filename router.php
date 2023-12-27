@@ -1,15 +1,6 @@
 <?php
 
-//get the current page URL and strip the query strings
-$url = parse_url($_SERVER["REQUEST_URI"])['path'];
-
-$routes = [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    '/posts' => 'controllers/posts.php',
-    '/post' => 'controllers/post.php',
-    '/contact' => 'controllers/contact.php',
-];
+$routes = require('routes.php');
 
 function routeToController($url, $routes) {
     //require the controller if array includes key
@@ -28,5 +19,8 @@ function abort($code = 404) {
 
     die();
 }
+
+//get the current page URL and strip the query strings
+$url = parse_url($_SERVER["REQUEST_URI"])['path'];
 
 routeToController($url, $routes);
