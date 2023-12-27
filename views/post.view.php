@@ -6,7 +6,11 @@
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+
+        <a href="/posts" class="mb-5 text-blue-500 hover:underline active:underline block">See all my posts</a>
+
         <?= $post['title'] ?>
+
     </div>
 </main>
 
