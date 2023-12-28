@@ -33,3 +33,12 @@ function view($path, $attributes = []) {
 
     require BASE_PATH . "views/{$path}.view.php";
 }
+
+function abort($code = 404)
+{
+    http_response_code($code);
+
+    require base_path("views/error_pages/{$code}.php");
+
+    die();
+}
