@@ -10,11 +10,30 @@ $currentUserId = 1;
 
 $db = new Database($config['database']);
 
-$query = "select * from posts where id = :id";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-$post = $db->query($query, [':id' => $id])->findorFail();
+    $query = "select * from posts where id = :id";
 
-authorize($post["user_id"] === $currentUserId);
+    $post = $db->query($query, [':id' => $id])->findorFail();
+
+    authorize($post["user_id"] === $currentUserId);
+
+    $db->query("delete from posts where id = :id", [
+        ':id' => $_POST['id']
+    ]);
+
+    header("Location: /posts");
+    exit;
+
+} else {
+
+    $query = "select * from posts where id = :id";
+
+    $post = $db->query($query, [':id' => $id])->findorFail();
+
+    authorize($post["user_id"] === $currentUserId);
+
+}
 
 return view('posts/show', [
     'heading' => 'Post',

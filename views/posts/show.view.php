@@ -11,6 +11,12 @@
 
         <?= htmlspecialchars($post['title']) ?>
 
+        <form class="mt-6" method="post">
+            <input type="hidden" name="id" value="<?= $post['id'] ?>">
+            <button class="text-sm px-2 py-1 bg-red-500 rounded-md text-white font-bold" type="submit">Delete
+                Post</button>
+        </form>
+
     </div>
 </main>
 
