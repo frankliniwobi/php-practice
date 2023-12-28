@@ -10,7 +10,12 @@ require BASE_PATH . 'Core/functions.php';
  * the classes automatically.
  */
 spl_autoload_register(function($class) {
-    require base_path('Core/' . $class . '.php') ;
+
+    //replace backslash(\) with the directory separator
+    //for your OS
+    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+
+    require base_path("{$class}.php");
 });
 
 require base_path('Core/router.php');
