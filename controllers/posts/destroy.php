@@ -1,14 +1,13 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config = require base_path('config.php');
+$db = App::resolve(Database::class);
 
 $id = $_GET["id"];
 
 $currentUserId = 1;
-
-$db = new Database($config['database']);
 
 $query = "select * from posts where id = :id";
 
