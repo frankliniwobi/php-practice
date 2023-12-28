@@ -2,7 +2,7 @@
 
 const BASE_PATH = __DIR__ . "/../";
 
-require BASE_PATH . 'functions.php';
+require BASE_PATH . 'Core/functions.php';
 
 /**
  * To avoid requiring every class we may need
@@ -10,7 +10,7 @@ require BASE_PATH . 'functions.php';
  * the classes automatically.
  */
 spl_autoload_register(function($class) {
-    require base_path($class . '.php') ;
+    require base_path('Core/' . $class . '.php') ;
 });
 
-require base_path('router.php');
+require base_path('Core/router.php');
