@@ -1,13 +1,11 @@
 <?php
 
-$heading = 'Create Post';
-
-$config = require('config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
+$errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
 
-    $errors = [];
     if (! Validator::string($_POST['title'], 1, 100)) {
         $errors['title'] = 'A title of not more than 100 characters is required!';
     }
@@ -22,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
 
         $query = 'INSERT INTO `posts` (`title`, `body`, `user_id`) VALUES (:title, :body, :user_id) ';
 
-        $posts = $db->query($query, [
+        $db->query($query, [
             ':title' => $_POST['title'],
             ':body' => $_POST['body'],
             ':user_id' => $id,
@@ -35,4 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
 
 }
 
-require 'views/posts/create.view.php';
+return view('posts/create', [
+    'heading' => 'Create Post',
+    'errors' => $errors
+]);

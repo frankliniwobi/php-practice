@@ -1,8 +1,6 @@
 <?php
 
-$heading = "Post";
-
-$config = require('config.php');
+$config = require base_path('config.php');
 
 $id = $_GET["id"];
 
@@ -16,5 +14,7 @@ $post = $db->query($query, [':id' => $id])->findorFail();
 
 authorize($post["user_id"] === $currentUserId);
 
-
-require "views/posts/show.view.php";
+return view('posts/show', [
+    'heading' => 'Post',
+    'post' => $post
+]);

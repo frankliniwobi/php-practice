@@ -22,3 +22,12 @@ function authorize($condition, $status = Response::FORBIDDEN) {
 function base_path($path) {
     return BASE_PATH . $path;
 }
+
+function view($path, $attributes = []) {
+
+    //extract the variables parsed
+    //and provide it to the view
+    extract($attributes);
+
+    require BASE_PATH . "views/{$path}.view.php";
+}

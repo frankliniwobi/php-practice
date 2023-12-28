@@ -1,8 +1,6 @@
 <?php
 
-
-
-$config = require('config.php');
+$config = require base_path('config.php');
 
 $db = new Database($config['database']);
 
@@ -16,4 +14,7 @@ $count = count($posts);
 
 $heading = "My Posts ($count)";
 
-require "views/posts/index.view.php";
+return view('posts/index', [
+    'heading' => $heading,
+    'posts' => $posts
+]);
