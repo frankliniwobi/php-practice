@@ -16,7 +16,9 @@ $post = $db->query($query, [':id' => $id])->findorFail();
 
 authorize($post["user_id"] === $currentUserId);
 
-return view('posts/show', [
-    'heading' => 'Post',
-    'post' => $post
+$db->query("delete from posts where id = :id", [
+    ':id' => $_POST['id']
 ]);
+
+header("Location: /posts");
+exit;

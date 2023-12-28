@@ -14,7 +14,7 @@
                 </div>
                 <?php endif; ?>
 
-                <form method="POST">
+                <form action="/posts" method="POST">
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
 
                         <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
