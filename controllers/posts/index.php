@@ -16,4 +16,4 @@ $count = count($posts);
 
 $heading = "My Posts ($count)";
 
-require "views/posts.view.php";
+require "views/posts/index.view.php";
