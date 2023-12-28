@@ -8,21 +8,12 @@ $db = new Database($config['database']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
 
     $errors = [];
-
-    if (strlen($_POST['title']) > 100 ) {
-        $errors['title'] = 'The title cannot be more than 100 characters';
+    if (! Validator::string($_POST['title'], 1, 100)) {
+        $errors['title'] = 'A title of not more than 100 characters is required!';
     }
 
-    if (strlen($_POST['title']) === 0 ) {
-        $errors['title'] = 'The title is required';
-    }
-
-    if (strlen($_POST['body']) === 0) {
-        $errors['body'] = 'The body is required';
-    }
-
-    if (strlen($_POST['body']) > 1000) {
-        $errors['body'] = 'The body cannot be more than 1000 characters';
+    if (! Validator::string($_POST['body'], 1, 1000)) {
+        $errors['body'] = 'A body of not more than 1000 characters is required!';
     }
 
     if (empty($errors)) {
