@@ -62,5 +62,4 @@ $user = [
 
 login($user);
 
-header("Location: /");
-exit();
+redirect_to('/');

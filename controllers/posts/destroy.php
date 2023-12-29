@@ -19,5 +19,4 @@ $db->query("delete from posts where id = :id", [
     ':id' => $_POST['id']
 ]);
 
-header("Location: /posts");
-exit;
+redirect_to('/posts');

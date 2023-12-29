@@ -48,5 +48,4 @@ if (! Hash::check($password, $user['password'])) {
 
 login($user);
 
-header("Location: /");
-exit();
+redirect_to('/');

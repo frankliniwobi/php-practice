@@ -42,5 +42,4 @@ $db->query('update posts set body = :body, title = :title where id = :id', [
 ]);
 
 // redirect the user
-header('location: /posts');
-die();
+redirect_to('/posts');

@@ -4,6 +4,8 @@ use Core\Router;
 
 session_start();
 
+// dd(sys_get_temp_dir()); //get local session storage directory
+
 const BASE_PATH = __DIR__ . "/../";
 
 require BASE_PATH . 'Core/functions.php';

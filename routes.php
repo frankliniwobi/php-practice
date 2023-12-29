@@ -17,3 +17,4 @@ $router->post('/register', 'controllers/registration/store.php')->middleware('gu
 
 $router->get('/login', 'controllers/login/create.php')->middleware('guest');
 $router->post('/login', 'controllers/login/store.php')->middleware('guest');
+$router->delete('/login', 'controllers/login/destroy.php')->middleware('auth');

@@ -28,8 +28,7 @@ if (empty($errors)) {
         ':user_id' => $id,
     ])->get();
 
-    header("Location: /posts/create?success=Post+created+successfully!");
-    exit;
+    redirect_to('/posts/create?success=Post+created+successfully!');
 
 }
 
