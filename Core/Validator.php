@@ -12,4 +12,8 @@ class Validator
 
         return $value !== 0 && $value >= $min && $value <= $max;
     }
+
+    public static function email($value) {
+        return filter_var($value, FILTER_VALIDATE_EMAIL);
+    }
 }
