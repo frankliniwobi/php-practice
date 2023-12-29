@@ -47,17 +47,19 @@ if ($check) {
 $user = $db->query("INSERT INTO `USERS` (`name`, `email`, `password`) VALUES (:name, :email, :password) ", [
     ':name' => $name,
     ':email' => $email,
-    ':password' => $password
+    ':password' => password_hash($password, PASSWORD_BCRYPT)
 ]);
 
 if (! $user) {
     dd('error registering user!');
 }
 
-$_SESSION['user'] = [
+$user = [
     'name' => $name,
     'email' => $email
 ];
+
+login($user);
 
 header("Location: /");
 exit();

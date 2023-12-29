@@ -14,3 +14,6 @@ $router->get('/post/edit', 'controllers/posts/edit.php')->middleware('auth');
 
 $router->get('/register', 'controllers/registration/create.php')->middleware('guest');
 $router->post('/register', 'controllers/registration/store.php')->middleware('guest');
+
+$router->get('/login', 'controllers/login/create.php')->middleware('guest');
+$router->post('/login', 'controllers/login/store.php')->middleware('guest');

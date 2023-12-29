@@ -42,3 +42,10 @@ function abort($code = 404)
 
     die();
 }
+
+function login(array $user) {
+    $_SESSION['user'] = [
+        'name' => $user['name'],
+        'email' => $user['email']
+    ];
+}

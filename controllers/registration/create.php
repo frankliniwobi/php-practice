@@ -1,5 +1,3 @@
 <?php
 
-return view('registration/create', [
-    'heading' => 'Register an Account'
-]);
+return view('registration/create');
