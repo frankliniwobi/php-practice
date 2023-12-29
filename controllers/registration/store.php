@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Hash;
 use Core\Database;
 use Core\Validator;
 
@@ -47,7 +48,7 @@ if ($check) {
 $user = $db->query("INSERT INTO `USERS` (`name`, `email`, `password`) VALUES (:name, :email, :password) ", [
     ':name' => $name,
     ':email' => $email,
-    ':password' => password_hash($password, PASSWORD_BCRYPT)
+    ':password' => Hash::make($password)
 ]);
 
 if (! $user) {

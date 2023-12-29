@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Hash;
 use Core\Database;
 use Core\Validator;
 
@@ -38,7 +39,7 @@ if (! $user) {
     ]);
 }
 
-if (! password_verify($password, $user['password'])) {
+if (! Hash::check($password, $user['password'])) {
     $errors['password'] = 'Incorrect credentials!';
     return view('login/create', [
         'errors' => $errors
