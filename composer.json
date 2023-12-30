@@ -7,11 +7,21 @@
       "email": "iwobiokwudili@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "illuminate/collections": "^10.39"
+  },
   "autoload": {
     "psr-4": {
       "Core\\": "Core/",
       "Http\\": "Http/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.30"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
     }
   }
 }
