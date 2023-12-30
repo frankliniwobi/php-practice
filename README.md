@@ -1,6 +1,6 @@
 # A simple application where users can manage their **posts**
 
-It includes implimentation of `Router`, `Middleware`, `Autorization`, `Authentication`, `Testing` with ([pest](https://pestphp.com/))
+It includes implimentation of `Router`, `Middleware`, `Autorization`, `Authentication`, `Testing` with ([PestPhp](https://pestphp.com/))
 
 To begin using the app, clone the repo into your local machine, then run
 
