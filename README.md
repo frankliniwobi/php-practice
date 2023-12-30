@@ -20,7 +20,17 @@ Install composer dependencies
 composer install
 ```
 
-After installing the dependencies, start your local server with this command
+After installing the dependencies, create a database (preferably MySql)
+
+Create a new `.env` file and copy the data from `.env.example` into it, you can do it from the command line by running
+
+```
+cp .env.example .env
+```
+
+Update the variables to match the settings of your `database`
+
+Start your local server with this command
 
 ```
 php -S localhost:8888 -t public
