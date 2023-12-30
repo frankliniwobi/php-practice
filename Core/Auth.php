@@ -4,6 +4,7 @@ namespace Core;
 
 use Core\App;
 use Core\Hash;
+use Core\Session;
 use Core\Database;
 
 class Auth
@@ -31,22 +32,16 @@ class Auth
 
     public function login($user)
     {
-        $_SESSION['user'] = [
+        Session::put('user', [
             'email' => $user['email'],
             'name' => $user['name'],
-        ];
+        ]);
 
         session_regenerate_id(true);
     }
 
     public static function logout()
     {
-        $_SESSION = [];
-
-        session_destroy();
-
-        $params = session_get_cookie_params();
-
-        setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+        Session::destroy();
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Core\Auth;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
@@ -16,6 +17,6 @@ if ($form->validate($email, $password)) {
     $form->error('email', 'No matching account found for that email address and password.');
 }
 
-return view('login/create', [
-    'errors' => $form->errors()
-]);
+Session::flash('errors', $form->errors());
+
+return redirect_to('/login');

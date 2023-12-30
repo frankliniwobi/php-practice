@@ -1,3 +1,7 @@
 <?php
 
-return view('login/create');
+use Core\Session;
+
+return view('login/create', [
+    'errors' => Session::get('errors')
+]);
