@@ -2,7 +2,19 @@
 
 It includes implimentation of `Router`, `Middleware`, `Autorization`, `Authentication`, `Testing` with ([PestPhp](https://pestphp.com/))
 
-To begin using the app, clone the repo into your local machine, then run
+To begin using the app, clone the repo into your local machine,
+
+```
+https://github.com/frankliniwobi/php-practice.git
+```
+
+cd into the project folder
+
+```
+cd php-practice
+```
+
+Install composer dependencies
 
 ```
 composer install
