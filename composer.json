@@ -1,0 +1,11 @@
+{
+    "name": "iof/php_practice",
+    "description": "Learning PHP",
+    "authors": [
+        {
+            "name": "Iwobi Okwudili Frank",
+            "email": "iwobiokwudili@gmail.com"
+        }
+    ],
+    "require": {}
+}
