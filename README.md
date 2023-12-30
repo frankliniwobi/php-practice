@@ -5,7 +5,7 @@ It includes implimentation of `Router`, `Middleware`, `Autorization`, `Authentic
 To begin using the app, clone the repo into your local machine,
 
 ```
-https://github.com/frankliniwobi/php-practice.git
+git clone https://github.com/frankliniwobi/php-practice.git
 ```
 
 cd into the project folder
