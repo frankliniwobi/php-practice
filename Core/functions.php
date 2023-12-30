@@ -61,3 +61,7 @@ function auth($field = null) {
         return Auth::user();
     }
 }
+
+function env($key, $default = '') {
+    return $_ENV[$key] ?? $default;
+}

@@ -14,6 +14,9 @@ require BASE_PATH . "/vendor/autoload.php";
 
 require BASE_PATH . 'Core/functions.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(BASE_PATH);
+$dotenv->load();
+
 /**
  * To avoid requiring every class we may need
  * later on, let's allow php to autoload
