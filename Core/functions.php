@@ -1,5 +1,6 @@
 <?php
 
+use Core\Auth;
 use Core\Session;
 use Core\Response;
 
@@ -51,4 +52,12 @@ function redirect_to($path) {
 
 function old($key, $default = '') {
     return Session::get('old')[$key] ?? $default ;
+}
+
+function auth($field = null) {
+    if ($field) {
+        return Auth::user()->get($field);
+    } else {
+        return Auth::user();
+    }
 }

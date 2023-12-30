@@ -1,7 +1,9 @@
 <?php
 
 use Core\App;
+use Core\Auth;
 use Core\Hash;
+use Core\Session;
 use Core\Database;
 use Core\Validator;
 
@@ -25,9 +27,14 @@ if (! Validator::string($name, 5, 255)) {
 }
 
 if (! empty($errors)) {
-    return view('registration/create', [
-        'errors' => $errors
+    Session::flash('errors', $errors);
+    Session::flash('old', [
+        'name' => $name,
+        'email' => $email,
     ]);
+
+    return redirect_to('/register');
+
 }
 
 //check if the email exists
@@ -39,9 +46,14 @@ $check = $db->query('select * from users where email = :email', [
 
 if ($check) {
     $errors['email'] = 'Sorry, this email address is already taken!';
-    return view('registration/create', [
-        'errors' => $errors
+
+    Session::flash('errors', $errors);
+    Session::flash('old', [
+        'name' => $name,
+        'email' => $email,
     ]);
+
+    return redirect_to('/register');
 }
 
 //create a new user
@@ -60,6 +72,6 @@ $user = [
     'email' => $email
 ];
 
-login($user);
+Auth::login($user);
 
 redirect_to('/');

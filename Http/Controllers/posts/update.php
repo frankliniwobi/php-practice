@@ -1,12 +1,11 @@
 <?php
 
 use Core\App;
+use Core\Session;
 use Core\Database;
 use Core\Validator;
 
 $db = App::resolve(Database::class);
-
-$currentUserId = 1;
 
 // find the corresponding post
 $post = $db->query('select * from posts where id = :id', [
@@ -14,7 +13,7 @@ $post = $db->query('select * from posts where id = :id', [
 ])->findOrFail();
 
 // authorize that the current user can edit the post
-authorize($post['user_id'] === $currentUserId);
+authorize($post['user_id'] === auth('id'));
 
 // validate the form
 $errors = [];
@@ -41,5 +40,7 @@ $db->query('update posts set body = :body, title = :title where id = :id', [
     'title' => $_POST['title']
 ]);
 
+Session::flash('success', 'Post updated');
+
 // redirect the user
-redirect_to('/posts');
+redirect_to("/post?id={$post['id']}");

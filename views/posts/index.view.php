@@ -6,6 +6,14 @@
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <?php if(\Core\Session::has('success')) : ?>
+        <div class="my-5 p-5 bg-green-300 rounded-md ">
+            <span class="font-bold text-black"><?= \Core\Session::get('success') ?></span>
+        </div>
+        <?php endif; ?>
+        <?php if(empty($posts)) : ?>
+        <p>You don't have any posts yet.</p>
+        <?php endif; ?>
         <ul>
             <?php foreach($posts as $post) : ?>
             <li>
