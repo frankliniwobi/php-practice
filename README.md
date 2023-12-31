@@ -39,7 +39,7 @@ create database <name_of_your_database>
 > [!TIP]
 > Remember to replace `<name_of_your_database>` to the actual name you want
 
-> [!CAUSION]
+> [!CAUTION]
 > If you could not create a database using the commands above, you can use your GUI, like phpMyAdmin or TablePlus to easily do that
 
 Create a new `.env` file and copy the data from `.env.example` into it, you can do it from the command line by running
