@@ -22,6 +22,26 @@ composer install
 
 After installing the dependencies, create a database (preferably MySql)
 
+make sure you have MySql installed on your device, then run this command
+
+```
+mysql -uroot -p
+```
+
+It will prompt you for a password, you can just hit enter to leave it blank
+
+Next create a database
+
+```
+create database <name_of_your_database>
+```
+
+> [!TIP]
+> Remember to replace `<name_of_your_database>` to the actual name you want
+
+> [!CAUSION]
+> If you could not create a database using the commands above, you can use your GUI, like phpMyAdmin or TablePlus to easily do that
+
 Create a new `.env` file and copy the data from `.env.example` into it, you can do it from the command line by running
 
 ```
